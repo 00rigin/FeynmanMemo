@@ -1,11 +1,11 @@
 {
-  "name": "chrome-extension-boilerplate-react-vite",
+  "name": "Feynman_Method_Chrome_Extension",
   "version": "0.0.1",
-  "description": "chrome extension boilerplate",
+  "description": "Use Feynman Method to learn anything faster",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite.git"
+    "url": "https://github.com/00rigin/Feynman_Method.git"
   },
   "scripts": {
     "build": "tsc --noEmit && vite build",
