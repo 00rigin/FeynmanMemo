@@ -2,27 +2,31 @@ package com.pineapple.hawaiianPizza.memo
 
 import com.pineapple.hawaiianPizza.model.BaseEntity
 import jakarta.persistence.*
+import lombok.Getter
 
 @Entity
+@Getter
 class Memo(title: String,
-           description: String,
-           parent: Memo) : BaseEntity(){
+           description: String) : BaseEntity(){
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private val id: Long? = null
 
     @Column(nullable = false)
-    private var title: String = title
+    var title: String = title
 
     @Column(nullable = false)
-    private var description: String = description
+    var description: String = description
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
-    private var parent: Memo? = parent
+    private var parent: Memo? = null
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
     @Column(name = "children_id_list")
     private var children: List<Memo>? = null
+    constructor (title: String, description: String, parent: Memo) : this(title, description) {
+        this.parent = parent
+    }
 }
